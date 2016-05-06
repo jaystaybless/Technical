@@ -3,54 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>React Demo</title>
+    <script src="./public/js/build/react.js"></script>
+    <script src="./public/js/build/react-dom.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+
+    <script src="./components/demo.jsx" type="text/jsx"></script>
+
+    <script src="./public/js/build/test.js"></script>
+
     <link rel="stylesheet" href"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container">
-        <h1>React.js Demo</h1>
-
-        <form>
-          <p class="h3"> Please select which items you would like to add to your shopping bag</p>
-        <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Isla Bra">
-            Isla Bra (LN332) - £29
-          </label>
-        </p>
-          <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Nordic Rose Bra">
-            Nordic Rose Bra (LN336) - £30
-          </label>
-        </p>
-        <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Zentangle Bra">
-            Zentangle Bra (FY240) - £34
-          </label>
-        </p>
-        <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Clara Bra">
-            Clara Bra (PN112) - £32
-          </label>
-        </p>
-        <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Deco Delight Bra">
-            Deco Delight Bra (FY158) - £34
-          </label>
-        </p>
-        <p class="checkbox">
-          <label>
-            <input type="checkbox" name="referrer" value="Sienna Bra">
-            Sienna Bra (LN328) - £32
-          </label>
-        </p>
-        <p><input type="submit" value="Submit"></p>
-        </form>
-      </div>
-
+      <script type="text/jsx">
+      var demo = React.createElement(Demo);
+      ReactDOM.render(demo, document.body);
+      </script>
 
   </body>
 </html>
