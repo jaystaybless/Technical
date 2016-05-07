@@ -5,21 +5,18 @@
     <title>Lingerie, Swimwear and Nightwear for D Cup and above | Bravissimo</title>
     <script src="./public/js/build/react.js"></script>
     <script src="./public/js/build/react-dom.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
     
-    
-    <script src="./public/js/demo.js"></script>
-    <script src="./public/js/checkbox.js"></script>
-    <script src="./public/js/productOptionsGroup.js"></script>
+    <script src="./components/demo.jsx" type="text/jsx"></script>
 
-    <script src="./public/js/test.js"></script>
+    <script src="./public/js/build/test.js"></script>
 
     <link rel="stylesheet" href"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-      <script>
-      
-      var demo = React.createElement(Demo); 
-      ReactDOM.render(demo, document.body);
+      <script type="text/jsx">
+      //var demo = React.createElement(Demo); //demo
+      ReactDOM.render(<Demo />, document.body);
       </script>
 
   </body>

@@ -12,7 +12,7 @@ var Demo = React.createClass({
 
 		return (
 			<div className="container">
-	        	<h1>React.js Demo</h1>
+	        	<h1>Bravissimo</h1>
 
 		        <form>
 		          <p className="h3"> Please select which items you would like to add to your shopping bag</p>
