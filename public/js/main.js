@@ -121,18 +121,8 @@ var ProductForm = React.createClass({
   render: function() {
     return (
       <form className="productForm" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter product name please"
-          value={this.state.product_name}
-          onChange={this.manageProductChange}
-        />
-        <input
-          type="text"
-          placeholder="Enter code please"
-          value={this.state.code}
-          onChange={this.manageCodeChange}
-        />
+        <input type="text" placeholder="Enter product name please" value={this.state.product_name} onChange={this.manageProductChange} />
+        <input type="text" placeholder="Enter code please" value={this.state.code} onChange={this.manageCodeChange} />
         <input type="submit" value="Add to Bag" />
       </form>
     );
