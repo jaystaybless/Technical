@@ -76,27 +76,27 @@ app.post('/api/bags', function(req, res) {
 
 app.delete('/api/bags', function(req, res) {
   for (i in foundProduct) {
-  var convert = foundProduct[i];
-  
-  var id = convert.id
-  var product_name = convert.product_name
-  var date = convert.date
-  found.push(convert)
-  
-  //var userInput = 'test 4'
-  var renoveProduct = {
-    //id: Date.now(), //Math.random() if Date.now() does not work
-    product_name: req.body.product_name,
-    code: req.body.code 
-  };
-  
-  if (convert.product_name === userInput) {
-    console.log('found')
-    delete foundProduct[i]
-    console.log(foundProduct)
+    var convert = foundProduct[i];
+    
+    var id = convert.id
+    var product_name = convert.product_name
+    var date = convert.date
+    found.push(convert)
+    
+    //var userInput = 'test 4'
+    var renoveProduct = {
+      //id: Date.now(), //Math.random() if Date.now() does not work
+      product_name: req.body.product_name,
+      code: req.body.code 
+    };
+    
+    if (convert.product_name === userInput) {
+      console.log('found')
+      delete foundProduct[i]
+      console.log(foundProduct)
+    }
+    
   }
-  
-}
   data = foundProduct;
   console.log(data);
  res.json(data)
