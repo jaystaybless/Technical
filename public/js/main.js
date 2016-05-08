@@ -21,9 +21,7 @@ var ProductList = React.createClass({
   render: function() {
     var productThing = this.props.data.map(function(product) {
       return (
-        <Product product_name={product.product_name} key={product.id}>
-          {product.code}
-        </Product>
+  
       );
     });
     return (
