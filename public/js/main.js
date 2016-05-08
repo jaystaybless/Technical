@@ -1,7 +1,7 @@
 var Product = React.createClass({
-  rawMarkup: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return { __html: rawMarkup };
+  outPut: function() {
+    var outPut = marked(this.props.children.toString(), {sanitize: true});
+    return { __html: outPut };
   },
 
   render: function() {
@@ -10,12 +10,11 @@ var Product = React.createClass({
         <h3 className="productName">
           {this.props.product_name}
         </h3>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
+        <span dangerouslySetInnerHTML={this.outPut()} />
       </div>
     );
   }
 });
-
 
 var ProductBox = React.createClass({
   getProductsFromServer: function() {
@@ -27,6 +26,25 @@ var ProductBox = React.createClass({
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleProductSubmit: function(product) {
+    var products = this.state.data;
+    product.id = Date.now(); //might change to Math.random()
+    var newProducts = products.concat([product]);
+    this.setState({data: newProducts});
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: product,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: products});
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
@@ -43,12 +61,11 @@ var ProductBox = React.createClass({
       <div className="productBox">
         <h1>Products</h1>
         <ProductList data={this.state.data} />
-        <ProductForm  />
+        <ProductForm onProductSubmit={this.handleProductSubmit} />
       </div>
     );
   }
 });
-
 
 var ProductList = React.createClass({
   render: function() {
@@ -90,19 +107,25 @@ var ProductForm = React.createClass({
   render: function() {
     return (
       <form className="productForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Enter product name please" value={this.state.product_name} onChange={this.manageProductChange} />
-        <input type="text" placeholder="Enter code please" value={this.state.code} onChange={this.manageCodeChange} />
+        <input
+          type="text"
+          placeholder="Enter product name please"
+          value={this.state.product_name}
+          onChange={this.manageProductChange}
+        />
+        <input
+          type="text"
+          placeholder="Enter code please"
+          value={this.state.code}
+          onChange={this.manageCodeChange}
+        />
         <input type="submit" value="Add to Bag" />
       </form>
     );
-
-    
-    }
+  }
 });
 
-
-
 ReactDOM.render(
-  <ProductContent url="/api/bags"/>,
+  <ProductBox url="/api/bags"/>,
   document.getElementById('info')
 );

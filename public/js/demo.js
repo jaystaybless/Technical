@@ -15,11 +15,11 @@ var Demo = React.createClass({displayName: "Demo",
 	        	React.createElement("h1", null, "Bravissimo"), 
 
 		        React.createElement("div", {}, 
-		          React.createElement("p", {className: "h3"}, " Please select which items you would like to add to your shopping bag"), 
+		        React.createElement("p", {className: "h3"}, " Please select which items you would like to add to your shopping bag"), 
 		        
 		        React.createElement(ProductOptionsGroup, {options: productOptions}), 
 
-		       // React.createElement("p", null, React.createElement("input", {type: "submit", value: "Submit"}))
+		       React.createElement("p", null, React.createElement("input", {type: "submit", value: "Submit"}))
 		        )
 	      )
 		);
