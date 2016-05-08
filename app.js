@@ -4,32 +4,37 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-
+//test data. 
 var foundProduct = [
     {
         "id": 1462481527397,
-        "product_name": "test 1",
-        "code": "test code 1"
+        "product_name": "Isla Bra",
+        "code": "(LN332)"
     },
     {
         "id": 1462481555490,
-        "product_name": "test 2",
-        "code": "test code 2"
+        "product_name": "Nordic Rose Bra",
+        "code": "(LN336)"
     },
     {
         "id": 1462640555180,
-        "product_name": "test 3",
-        "code": "test code 3"
+        "product_name": "Zentangle Bra",
+        "code": "(FY240)"
     },
     {
         "id": 1462640693274,
-        "product_name": "test 4",
-        "code": "test code 4"
+        "product_name": "Clara Bra",
+        "code": "(PN112)"
     },
     {
         "id": 1462640713835,
-        "product_name": "test 5",
-        "code": "test code 5"
+        "product_name": "Deco Delight Bra",
+        "code": "(FY158)"
+    },
+    {
+        "id": 1462640723835,
+        "product_name": "Sienna Bra ",
+        "code": "(LN328)"
     }
 ]
 
