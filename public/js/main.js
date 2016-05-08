@@ -17,6 +17,36 @@ var Product = React.createClass({
 });
 
 
+var ProductList = React.createClass({
+  render: function() {
+    var productThing = this.props.data.map(function(product) {
+      return (
+        <Product product_name={product.product_name} key={product.id}>
+          {product.code}
+        </Product>
+      );
+    });
+    return (
+      <div className="productList">
+        {productThing}
+      </div>
+    );
+  }
+});
+
+var ProductForm = React.createClass({
+  render: function() {
+    render: function() {
+      return (
+        <div className="productList">
+        list
+        </div>
+      )
+    }
+  }
+});
+
+
 
 ReactDOM.render(
   <ProductContent url="/api/bags"/>,
