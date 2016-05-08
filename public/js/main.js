@@ -68,15 +68,36 @@ var ProductList = React.createClass({
 });
 
 var ProductForm = React.createClass({
-  render: function() {
-    render: function() {
-      return (
-        <div className="productList">
-        list
-        </div>
-      )
+  getInitialState: function() {
+    return {product_name: '', code: ''};
+  },
+  manageProductChange: function(e) {
+    this.setState({product_name: e.target.value});
+  },
+  manageCodeChange: function(e) {
+    this.setState({code: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var product_name = this.state.product_name.trim();
+    var code = this.state.code.trim();
+    if (!code || !product_name) {
+      return;
     }
-  }
+    this.props.onProductSubmit({product_name: product_name, code: code});
+    this.setState({product_name: '', code: ''});
+  },
+  render: function() {
+    return (
+      <form className="productForm" onSubmit={this.handleSubmit}>
+        <input type="text" placeholder="Enter product name please" value={this.state.product_name} onChange={this.manageProductChange} />
+        <input type="text" placeholder="Enter code please" value={this.state.code} onChange={this.manageCodeChange} />
+        <input type="submit" value="Add to Bag" />
+      </form>
+    );
+
+    
+    }
 });
 
 
