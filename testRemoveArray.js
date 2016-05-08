@@ -36,8 +36,6 @@ var found = [{}]
 for (i in foundProduct) {
 	//console.log(foundProduct[i])
 	var convert = foundProduct[i];
-	//console.log(convert[i])
-	//console.log(convert)
 	
 	var id = convert.id
 	var product_name = convert.product_name
@@ -45,19 +43,15 @@ for (i in foundProduct) {
 	found.push(convert)
 	
 	//foundProduct.push(convert)
-	var user = 'test 3'
+	var userInput = 'test 4'
 	//console.log(user)
 	
-	if (convert.product_name === user) {
+	if (convert.product_name === userInput) {
 		console.log('found')
 		//console.log(foundProduct[i])
 		//console.log(convert)
 		delete foundProduct[i]
 		console.log(foundProduct)
-		//delete convert
-		//conso
-		
-		
 	}
 	
 }

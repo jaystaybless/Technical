@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 
-app.locals.title = 'React Api'
+//app.locals.title = 'React Api'
 //test data. 
 var foundProduct = [
     {
@@ -70,6 +70,36 @@ app.post('/api/bags', function(req, res) {
   
   res.json(foundProduct)
   //return res.render('index', {products: foundProduct})
+});
+
+//'api/bags/:product_name' - req.params('product_name') / req.params.product_name
+
+app.delete('/api/bags', function(req, res) {
+  for (i in foundProduct) {
+  var convert = foundProduct[i];
+  
+  var id = convert.id
+  var product_name = convert.product_name
+  var date = convert.date
+  found.push(convert)
+  
+  //var userInput = 'test 4'
+  var renoveProduct = {
+    //id: Date.now(), //Math.random() if Date.now() does not work
+    product_name: req.body.product_name,
+    code: req.body.code 
+  };
+  
+  if (convert.product_name === userInput) {
+    console.log('found')
+    delete foundProduct[i]
+    console.log(foundProduct)
+  }
+  
+}
+  data = foundProduct;
+  console.log(data);
+ res.json(data)
 });
 
 
